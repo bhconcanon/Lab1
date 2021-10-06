@@ -3,15 +3,15 @@ pipeline {
     kubernetes {
       yaml '''
 apiVersion: v1
-  kind: Pod
-  spec:
-    containers:
-    - name: jnlp
-      image: 'jenkins/inbound-agent:4.7-1'
-      args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
-    - name: maven
-      image: 'maven:3.8.1-jdk-8'
-      args: 99d
+kind: Pod
+spec:
+  containers:
+  - name: jnlp
+    image: 'jenkins/inbound-agent:4.7-1'
+    args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
+  - name: maven
+    image: 'maven:3.8.1-jdk-8'
+    args: 99d
     '''
   }
 }
