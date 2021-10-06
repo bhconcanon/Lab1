@@ -1,17 +1,9 @@
 pipeline {
-  	podTemplate { (
-      yaml '''
-apiVersion: v1
-kind: Pod
-spec:
-  containers:
-  - name: maven
-    image: maven:3.8.1-jdk-8
-    command:
-    - sleep
-    args:
-    - 99d
-''' )
+  	podTemplate(
+      label: 'MAVEN',
+      containers: [
+        containerTemplate(name: 'maven1', image: 'maven', command: 'sleep')
+      ]
 }
   node(MAVEN) {
    stages {
