@@ -1,5 +1,18 @@
 pipeline {
-  	podTemplate(
+  agent {
+    kubernetes {
+      yaml '''
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: jnlp
+    image: 'jenkins/inbound-agent:4.7-1'
+    args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
+    '''
+  }
+}
+  podTemplate(
       label: 'MAVEN',
       containers: [
         containerTemplate(name: 'maven1', image: 'maven', command: 'sleep')
