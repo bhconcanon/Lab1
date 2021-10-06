@@ -9,7 +9,17 @@ spec:
   - name: jnlp
     image: 'jenkins/inbound-agent:4.7-1'
     args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
-    '''
+      '''
+      yaml '''
+apiVersion: v1
+kind: Pod
+specs:
+  containers: 
+  - name: maven
+  - image: maven
+  command:
+  - sleep
+  -args: 99d '''
   }
 }
   kubernetes {
@@ -19,7 +29,7 @@ spec:
   metadata:
     label: MAVEN
   specs:
-   containers: ]
+   containers: 
    - name: maven
    - image: maven
    command:
