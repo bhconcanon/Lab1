@@ -12,13 +12,7 @@ spec:
     '''
   }
 }
-  podTemplate(
-      label: 'MAVEN',
-      containers: [
-        containerTemplate(name: 'maven1', image: 'maven', command: 'sleep')
-      ]
-    ) 
-  {
+podTemplate(cloud: 'kubernetes', containers: [containerTemplate(args: '9999999', command: 'sleep', image: 'maven', livenessProbe: containerLivenessProbe(execArgs: '', failureThreshold: 0, initialDelaySeconds: 0, periodSeconds: 0, successThreshold: 0, timeoutSeconds: 0), name: 'maven', resourceLimitCpu: '', resourceLimitEphemeralStorage: '', resourceLimitMemory: '', resourceRequestCpu: '', resourceRequestEphemeralStorage: '', resourceRequestMemory: '', workingDir: '/home/jenkins/agent')], label: 'MAVEN', name: 'maven') 
   node(MAVEN) {
    stages {
     stage('Hello World') {
