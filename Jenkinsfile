@@ -12,7 +12,8 @@ spec:
     '''
   }
 }
-podTemplate(yaml: '''
+  kubernetes {
+  yaml '''
   apiVersion: v1
   kind: Pod
   metadata:
@@ -23,10 +24,8 @@ podTemplate(yaml: '''
    - image: maven
    command:
    - sleep
-   -args: 99d 
-''') {   
-  node('MAVEN') {
-   container('maven')
+   -args: 99d '''
+    }
     stages {
       stage('Hello World') {
           steps {
