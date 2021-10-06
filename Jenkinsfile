@@ -9,12 +9,13 @@ spec:
   - name: jnlp
     image: 'jenkins/inbound-agent:4.7-1'
     args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
-  - name: maven
+    - name: maven
     image: maven
     args: 99d
-      '''
+    '''
   }
 }
+
   kubernetes {
   yaml '''
   apiVersion: v1
