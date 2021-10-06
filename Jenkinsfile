@@ -4,7 +4,7 @@ pipeline {
       containers: [
         containerTemplate(name: 'maven1', image: 'maven', command: 'sleep')
       ]
-}
+    ) 
   node(MAVEN) {
    stages {
     stage('Hello World') {
