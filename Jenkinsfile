@@ -15,9 +15,11 @@ spec:
   }
 }
   stages {
+    container('maven') {
     stage('Hello World') {
       steps {
         sh 'echo Hello World'
+        }  
       }
     }   
     stage('Email') {
