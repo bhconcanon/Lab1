@@ -16,9 +16,10 @@ spec:
   }
 }
   stages {
-    stage('Hello World') {
+    stage('Hello') {
       steps {
         sh 'echo Hello World'
+        sh 'echo This job was pulled from SCM'
       }
     }
   }
