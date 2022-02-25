@@ -16,8 +16,8 @@ spec:
   }
 }
   stages {
-  	when { tag "v1*" }
     stage('Hello') {
+      when { tag "v1*" }
       steps {
         sh 'echo Hello World'
         sh 'echo This job was pulled from SCM'
