@@ -16,6 +16,7 @@ spec:
   }
 }
   stages {
+  	when { tag "v1*" }
     stage('Hello') {
       steps {
         sh 'echo Hello World'
